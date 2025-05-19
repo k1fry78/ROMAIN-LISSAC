@@ -446,24 +446,7 @@ main {
     font-size: 1.05rem;
     margin-bottom: 12px;
   }
-  .container-band {
-    position: relative; /* Positionne le conteneur comme référence pour les éléments absolus */
-    left: 0;
-    width: 100%;
-    height: 50vh;
-    overflow: hidden;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-  }
-  .text-band {
-    width: 100%;
-    left: 0;
-    top: 20%;
-    transform: translate(0, 0);
-    padding: 20px;
-    color: white;
-    z-index: 1; /* Assure que le texte est au-dessus de l'image */
-  }
+
   .skills-section {
     flex-direction: column;
     align-items: stretch;
@@ -509,9 +492,51 @@ main {
     width: auto;
     left: auto;
     top: 60%;
-    margin-top: 5vh;
+    margin-top: 120px;;
   }
+}
 
+@media (max-width: 425px) {
+    .container-band {
+    position: relative; /* Positionne le conteneur comme référence pour les éléments absolus */
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+  }
+  .text-band {
+    width: 100%;
+    left: 0;
+    top: 0;
+    transform: translate(0, 0);
+    padding: 20px;
+    color: white;
+    z-index: 1; /* Assure que le texte est au-dessus de l'image */
+  }
+  .text-band h2 {
+    font-size: 2rem;
+    margin-bottom: 1vh;
+  }
+  .text-band p {
+    font-size: 1rem;
+    margin-bottom: 1vh;
+    text-align: justify;
+  }
+   .info-blocks {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .img-background-band {
+    position: absolute; /* Positionne le texte par rapport au conteneur */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 80%; /* Centre horizontalement et aligne en haut verticalement */
+    filter: brightness(40%);
+  }
 }
 
 
