@@ -32,7 +32,7 @@
       </div>
       <div class="contact-form" role="form" aria-labelledby="form-title">
         <h2 id="form-title">Envoyez-moi un message</h2>
-        <form>
+        <form action="https://formspree.io/f/xwpozbqa" method="POST">
           <div class="form-group">
             <label for="name">Nom</label>
             <input type="text" id="name" name="name" required aria-required="true" />
