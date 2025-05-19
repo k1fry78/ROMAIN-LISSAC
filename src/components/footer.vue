@@ -7,8 +7,6 @@ const route = useRoute();
 <template>
   <footer :class="['footer', { 'footer-centered': route.path !== '/' }]">
     <div class="footer-content">
-      <p>Politique de confidentialité</p>
-      <p>Conditions d'utilisation</p>
       <p>&copy; 2025 Romain Lissac, développeur web à Toulouse</p>
     </div>
   </footer>
@@ -20,10 +18,10 @@ const route = useRoute();
   padding: 20px;
   background-color: #333;
   color: #fff;
-  position: relative; /* Permet au footer de suivre le flux normal de la page */
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: auto; /* Pousse le footer en bas */
 }
 
 .footer-centered {

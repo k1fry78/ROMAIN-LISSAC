@@ -6,7 +6,7 @@
           <div class="contact-info-text">
           <h2 id="contact-info-title">Contactez-moi</h2>
           <p>Je suis disponible du lundi au vendredi par téléphone et tous les jours par email. <br> Il est possible de prendre rendez-vous en visio ou sur place.</p>
-          <p class="infos">Adresse: 19 rue, 31140 Saint-Alban, France <br> Horaires: 9h30 à 19h30 <br>06.73.16.71.71<br>lissac.romain@gmail.com</p>
+          <p class="infos">Adresse: rue Bernard Amiel, 31140 Saint-Alban, France <br> Horaires: 9h30 à 19h30 <br>06.73.16.71.71<br>lissac.romain@gmail.com</p>
         </div>
           <img
            src="@/assets/IconeWebSite.png"
@@ -48,16 +48,15 @@
           <div class="form-group">
             <label for="options">Choisir le sujet</label>
             <select id="options" name="options" required aria-required="true" aria-describedby="options-description">
-              <option value="option0"></option>
+              <option value="option0" selected disabled>Sélectionnez</option>
               <option value="option1">Demande d'informations</option>
               <option value="option2">Prendre un rendez-vous</option>
               <option value="option3">Autre</option>
             </select>
-            <p id="options-description" class="sr-only">Sélectionnez un sujet parmi les options disponibles.</p>
           </div>
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
+            <textarea id="message" name="message" rows="6" required aria-required="true"></textarea>
           </div>
           <button type="submit" aria-label="Envoyer le formulaire de contact">Envoyer</button>
         </form>
@@ -69,13 +68,15 @@
 <style scoped>
 /* Styles principaux */
 main {
+  min-height: 95vh;
   height: auto;
-  min-height: 95vh;  
   padding-top: 9vh;
   background-color: #d6d6d6;
+  z-index: -100;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
 .contact-container {
+  height: auto;
   min-height: 85vh;
   color: black;
   display: flex;
@@ -170,11 +171,11 @@ main {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: #e2e2e2;
 }
 
 button {
-  min-height: 4vh;
+  min-height: 5vh;
   width: 100%;
   margin-top: 20px;
   border: none;
@@ -194,13 +195,17 @@ button:hover {
   .contact-container {
     flex-direction: column;
     align-items: center;
+    min-height: 85vh;
+    height: auto;
   }
 
   .contact-left,
   .contact-form {
     width: 90%;
   }
-
+   .contact-left {
+    margin-bottom: 32px; /* Ajoute une marge entre les deux conteneurs */
+  }
   .map-container iframe {
     width: 100%;
     height: 250px;

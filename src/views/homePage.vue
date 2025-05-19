@@ -21,7 +21,7 @@ onUnmounted(() => {
 
 <template>
   <main aria-label="Page d'accueil">
-    <section name=" home">
+    <section aria-labelledby="main-title" name=" home">
     <div class="container-main">
       <div class="container-title">
         <div class="text-title">
@@ -32,7 +32,7 @@ onUnmounted(() => {
             internationales dans le domaine de l'intelligence artificielle.
           </p>
         </div>
-        <div class="question-title">
+        <div class="question-title" aria-label="Contact rapide">
           <h3>Vous avez un projet ?</h3>
           <p>06 73 16 71 71</p>
         </div>
@@ -44,7 +44,7 @@ onUnmounted(() => {
       />
     </div>
   </section>
-    <div class="container-about">
+    <section class="container-about" aria-labelledby="about-title">
       <div class="text-about">
         <h2>À propos</h2>
         <h3>Je m’appelle Romain Lissac...</h3>
@@ -76,8 +76,8 @@ onUnmounted(() => {
         alt="Image d'un ordinateur"
         class="img-about"
       />
-    </div>
-    <div class="container-band">
+    </section>
+    <section class="container-band" aria-labelledby="sur-mesure-title">
       <div class="text-band">
         <h2>Sur-mesure</h2>
         <p>
@@ -88,19 +88,19 @@ onUnmounted(() => {
           mieux à vos besoins
         </p>
         <div class="info-blocks">
-          <div class="info-block">lissac.romain@gmail.com</div>
-          <div class="info-block">0673167171</div>
+          <a class="info-block" href="mailto:lissac.romain@gmail.com" aria-label="Envoyer un email à Romain Lissac">lissac.romain@gmail.com</a>
+          <a class="info-block" href="tel:0673167171" aria-label="Téléphoner à Romain Lissac">0673167171</a>
         </div>
       </div>
       <img
         src="@/assets/dev_web.avif"
-        alt="Image d'un ordinateur"
+        alt="Développement web sur écran d'ordinateur"
         class="img-background-band"
       />
-    </div>
+    </section>
     <h2 class="skill-title">Mes compétences</h2>
-    <div class="skills-section">
-      <div class="skill-card">
+    <section class="skills-section" aria-labelledby="skills-title">
+      <div class="skill-card" aria-label="Développement Back End">
         <div class="skill-icon">
           <img src="@/assets/Back-End-1.png" alt="Icône Back End" />
         </div>
@@ -115,9 +115,9 @@ onUnmounted(() => {
           <span>#InnoDB</span>
         </div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" aria-label="Développement Front End">
         <div class="skill-icon">
-          <img src="@/assets/Front-End-1.png" alt="Icône Front End" />
+          <img src="@/assets/Front-End-1.png" alt="Icône symbolisant le développement Front End" />
         </div>
         <h3>Développement Front End</h3>
         <p>
@@ -131,48 +131,54 @@ onUnmounted(() => {
           <span>#VueJS</span>
         </div>
       </div>
-    </div>
+    </section>
   </main>
 </template>
+
 <style scoped>
 /* MAIN SECTION */
-
 main {
   min-height: 100vh;
   height: auto;
-  padding-top: 9vh;
   background-color: white;
   z-index: -100;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .container-main {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  z-index: 0;
-  background-attachment: fixed; /* Crée l'effet parallax */
+  display: flex;
+  justify-content: flex-start;
   background-color: black; /* Optionnel : couleur de fond si l'image ne charge pas */
 }
-.container-title {
+
+.img-background{
   position: absolute;
-  width: 65%;
-  height: 80%;
-  left: 20%;
-  display: flex; /* Active Flexbox */
-  flex-direction: row; /* Aligne les éléments en colonne */
-  align-items: center; /* Centre verticalement les éléments */
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(45%);
+}
+.container-title {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  top: 40%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5vw;
+  
 }
 
 .text-title {
-  width: 60%;
-  top: 50%;
-  left: 50%;
+  width: 50%;
   color: white;
-  text-align: left; /* Aligne le texte à gauche */
   z-index: 1; /* Assure que le texte est au-dessus de l'image */
+  position:absolute;
 }
 
 .text-title h1 {
@@ -185,13 +191,12 @@ main {
   margin-bottom: 2vh;
 }
 .question-title {
+  position: absolute;
   width: 30%;
-  top: 70%;
-  left: 50%;
+  left: 60%;
   padding: 20px;
   color: white;
   background-color: rgb(255, 0, 0);
-  text-align: left;
   z-index: 1; /* Assure que le texte est au-dessus de l'image */
 }
 .img-background {
@@ -206,12 +211,12 @@ main {
 /*  A PROPOS SECTION */
 
 .container-about {
+  margin-top: 10vh;
   position: relative;
   left: 20%; /* Centre horizontalement */
-  margin-top: 100vh;
   width: 60%;
   height: 80vh;
-  background-color: #d6d6d6;
+  background-color: #f1f6fa;
   padding: 16px;
   display: flex; /* Active Flexbox */
   justify-content: space-between; /* Espace entre les éléments */
@@ -344,13 +349,13 @@ main {
   align-items: flex-start;
   gap: 20px;
   padding: 20px;
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
 }
 
 .skill-card {
   height: 100%;
   flex: 1;
-  background-color: #f9f9f9;
+  background-color: #f1f6fa;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -396,5 +401,118 @@ main {
   border-radius: 20px;
   font-size: 0.9rem;
 }
+@media (max-width: 1444px) {
+
+  .container-about {
+    flex-direction: column;
+    align-items: center;
+    width: 96%;
+    left: 2%;
+    height: auto;
+    padding: 0;
+    margin-top: 3vh;
+    background: #f1f6fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    overflow: hidden;
+  }
+  .img-about {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+    object-fit: cover;
+    max-height: 220px;
+    display: block;
+  }
+  .text-about {
+    width: 100%;
+    margin: 0;
+    padding: 24px 18px 18px 18px;
+    background: #f1f6fa;
+    border-radius: 0 0 10px 10px;
+    box-sizing: border-box;
+  }
+  .container-about h2,
+  .container-about h3 {
+    text-align: left;
+    margin-bottom: 12px;
+    color: #2d3a4a;
+    font-weight: 700;
+  }
+  .container-about p {
+    text-align: left;
+    color: #2d3a4a;
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+  }
+  .container-band {
+    position: relative; /* Positionne le conteneur comme référence pour les éléments absolus */
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+  }
+  .text-band {
+    width: 100%;
+    left: 0;
+    top: 20%;
+    transform: translate(0, 0);
+    padding: 20px;
+    color: white;
+    z-index: 1; /* Assure que le texte est au-dessus de l'image */
+  }
+  .skills-section {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    gap: 24px;
+    padding: 10px;
+  }
+  .skill-card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .skill-icon img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+  }
+}
+@media (max-width: 1024px) {
+  .container-title {
+    flex-direction: column;
+    align-items: center;
+    width: 98%;
+    height: auto;
+    position: static;
+    
+  }
+  .text-title{
+    position: absolute;
+    width: 98%;
+    left: 1%;
+    color: white;
+    top: 30%;
+    text-align: left;
+
+  }
+  .question-title {
+    position: absolute;
+    background-color: rgb(255, 0, 0); /* garde le fond rouge si tu veux */
+    color: white;
+    padding: 20px;
+    width: auto;
+    left: auto;
+    top: 60%;
+    margin-top: 5vh;
+  }
+
+}
+
 
 </style>
