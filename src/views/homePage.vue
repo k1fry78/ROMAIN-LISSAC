@@ -284,13 +284,20 @@ main {
   margin-bottom: 10vh;
 }
 .text-band {
-  width: 50%;
-  position: absolute; /* Positionne le texte par rapport au conteneur */
-  top: 50%; /* Centre verticalement */
-  left: 40%; /* Centre horizontalement */
-  transform: translate(-50%, -50%); /* Ajuste pour centrer parfaitement */
-  z-index: 2; /* Assure que le texte est au-dessus de l'image */
-  color: white; /* Couleur du texte pour qu'il soit lisible */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  max-width: 1300px;      
+  padding: 0px 10vw;      
+  transform: translateY(-50%);
+  margin: 0 auto;
+  z-index: 2;
+  color: white;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .text-band h2 {
@@ -496,7 +503,7 @@ main {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
     .container-band {
     position: relative; /* Positionne le conteneur comme référence pour les éléments absolus */
     left: 0;
@@ -507,13 +514,10 @@ main {
     margin-bottom: 10vh;
   }
   .text-band {
-    width: 100%;
-    left: 0;
-    top: 0;
-    transform: translate(0, 0);
-    padding: 20px;
-    color: white;
-    z-index: 1; /* Assure que le texte est au-dessus de l'image */
+    position: absolute;
+    max-width: 98vw;
+    padding: 20px 2vw;
+    font-size: 0.95rem;
   }
   .text-band h2 {
     font-size: 2rem;
