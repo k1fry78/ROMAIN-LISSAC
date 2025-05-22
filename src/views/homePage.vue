@@ -28,7 +28,7 @@ onUnmounted(() => {
           <h1>Romain Lissac, développeur web</h1>
           <p>Certifié Développeur Web Full Stack, option UX/UI Design</p>
           <p>
-            Entrepreneur depuis plus de 5 ans, collaborant avec des entreprises
+            En coopération avec des entreprises
             internationales dans le domaine de l'intelligence artificielle.
           </p>
         </div>
